@@ -3,10 +3,6 @@ import Forms from './components/form/form';
 import Card from './components/card/card';
 import '../src/App.css';
 
-
-
-
-
 function App() {
   const [dados, setDados] = useState([]);
 
