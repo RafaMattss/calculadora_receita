@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ExpenseForm from './components/form/form';
+import Forms from './components/form/form';
 import Card from './components/card/card';
 import '../src/App.css';
 
@@ -10,11 +10,11 @@ import '../src/App.css';
 function App() {
   const [dados, setDados] = useState([]);
 
-  const handleCadastroSubmit = (formData) => {
+  const CadastroSubmit = (formData) => {
     setDados([...dados, formData]);
   };
 
-  const handleExcluir = (item) => {
+  const Excluir = (item) => {
     const updatedDados = dados.filter((d) => d !== item);
     setDados(updatedDados);
   };
@@ -29,14 +29,14 @@ function App() {
     <div className="App">
       <div className="column">
         <h2>Cadastro</h2>
-        <ExpenseForm onCadastroSubmit={handleCadastroSubmit} />
+        <Forms onCadastroSubmit={CadastroSubmit} />
       </div>
       <div className="column">
         <h2>Receitas</h2>
         <p>Soma das Receitas: {somaReceitas}</p>
         <div className="card-container">
           {receitas.map((data, index) => (
-            <Card key={`receita-${index}`} data={data} type={data.tipo} onExcluir={handleExcluir} />
+            <Card key={`receita-${index}`} data={data} type={data.tipo} onExcluir={Excluir} />
           ))}
         </div>
       </div>
@@ -45,7 +45,7 @@ function App() {
         <p>Soma das Despesas: {somaDespesas}</p>
         <div className="card-container">
           {despesas.map((data, index) => (
-            <Card key={`despesa-${index}`} data={data} type={data.tipo} onExcluir={handleExcluir} />
+            <Card key={`despesa-${index}`} data={data} type={data.tipo} onExcluir={Excluir} />
           ))}
         </div>
       </div>

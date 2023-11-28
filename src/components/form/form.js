@@ -1,14 +1,14 @@
-// ExpenseForm.js
+
 import React, { useState } from 'react';
 import '../form/form.css'
 
-const ExpenseForm = ({ onCadastroSubmit }) => {
+const Forms = ({ onCadastroSubmit }) => {
   const [nome, setNome] = useState('');
   const [valor, setValor] = useState('');
   const [tipo, setTipo] = useState('receita');
   const [pagoPor, setPagoPor] = useState('');
 
-  const handleSubmit = (event) => {
+  const Submit = (event) => {
     event.preventDefault();
     const formData = { nome, valor, tipo, pagoPor };
     onCadastroSubmit(formData);
@@ -20,7 +20,7 @@ const ExpenseForm = ({ onCadastroSubmit }) => {
 
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={Submit}>
         <label>
           Nome:
           <input
@@ -66,4 +66,4 @@ const ExpenseForm = ({ onCadastroSubmit }) => {
   );
 };
 
-export default ExpenseForm;
+export default Forms;
